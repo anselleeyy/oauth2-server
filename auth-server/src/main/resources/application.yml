@@ -7,11 +7,11 @@ spring:
     name: auth-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/auth?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/auth?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       username: root
-      password: 4456
+      password: root
   jpa:
     database: MYSQL
     show-sql: true
@@ -23,7 +23,7 @@ spring:
       hibernate: 
         dialect: org.hibernate.dialect.MySQL8Dialect
   redis:
-    host: 182.254.137.178
+    host: 127.0.0.1
     database: 0
     port: 6379
     timeout: 10000
