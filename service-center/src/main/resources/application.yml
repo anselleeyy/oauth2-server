@@ -5,11 +5,11 @@ spring:
     name: service-center
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/auth?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/auth?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       username: root
-      password: 4456
+      password: root
   jpa:
     database: MYSQL
     show-sql: true
