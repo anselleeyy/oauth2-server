@@ -1,0 +1,43 @@
+server:
+  port: 9999
+  
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+      routes:
+      - id: eureka-center
+        uri: lb://eureka-center
+        order: 8000
+        predicates:
+        - Path=/eureka-center/**
+        filters:
+        - StripPrefix=1
+      - id: service-center
+        uri: lb://service-center
+        order: 8001
+        predicates:
+        - Path=/service-center/**
+        filters:
+        - StripPrefix=1
+      - id: auth-server
+        uri: lb://auth-server
+        order: 8002
+        predicates:
+        - Path=/auth-server/**
+        filters:
+        - StripPrefix=1
+  redis:
+    host: 182.254.137.178
+    database: 0
+    port: 6379
+    timeout: 10000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10070/eureka

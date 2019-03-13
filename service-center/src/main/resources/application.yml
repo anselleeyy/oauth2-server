@@ -5,11 +5,11 @@ spring:
     name: service-center
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.11.124.102:3306/auth?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3308/auth?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      username: ansel
-      password: Ansel0428!
+      username: root
+      password: 4456
   jpa:
     database: MYSQL
     show-sql: true
@@ -31,4 +31,9 @@ security:
       access-token-uri: http://localhost:5000/uaa/oauth/token
       grant-type: client_credentials,password
       scope: server
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10070/eureka
   
